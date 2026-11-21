@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>TOP KEMO platkemo | منصة كيمو التعليمية - تالتة إعدادي 2027</title>
+  <meta name="description" content="منصة TOP KEMO platkemo لمنهج الصف الثالث الإعدادي الجديد 2026/2027 الترم الأول في 5 مواد مع اختبارات متعددة ونظام نقاط بالخمسة ولوحة متصدرين و5 ألوان للتطبيق." />
+  <meta name="theme-color" content="#be185d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fdf0f4;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --hero: linear-gradient(270deg, #e11d64 0%, #4a185a 55%, #0f1740 100%);
+      --status-bg: #101840;
+      --btn-grad: linear-gradient(270deg, #e11d48 0%, #db2777 100%);
+      --accent: #e11d48;
+      --accent-soft: rgba(225, 29, 72, 0.10);
+      --chip-border: #f43f5e;
+      --chip-bg: #fff1f2;
+      --shadow: 0 10px 26px -10px rgba(15, 23, 64, 0.16);
+    }
+    body[data-theme="sky"] {
+      --bg: #eef6ff;
+      --hero: linear-gradient(270deg, #0284c7 0%, #1d4ed8 55%, #0f1740 100%);
+      --status-bg: #0c234a;
+      --btn-grad: linear-gradient(270deg, #0284c7 0%, #2563eb 100%);
+      --accent: #0284c7;
+      --accent-soft: rgba(2, 132, 199, 0.12);
+      --chip-border: #0ea5e9;
+      --chip-bg: #f0f9ff;
+    }
+    body[data-theme="mint"] {
+      --bg: #ecfdf5;
+      --hero: linear-gradient(270deg, #059669 0%, #0f766e 55%, #0f292e 100%);
+      --status-bg: #09302c;
+      --btn-grad: linear-gradient(270deg, #059669 0%, #0d9488 100%);
+      --accent: #059669;
+      --accent-soft: rgba(5, 150, 105, 0.12);
+      --chip-border: #10b981;
+      --chip-bg: #ecfdf5;
+    }
+    body[data-theme="royal"] {
+      --bg: #f4f0ff;
+      --hero: linear-gradient(270deg, #7c3aed 0%, #4f46e5 55%, #17123b 100%);
+      --status-bg: #1a1347;
+      --btn-grad: linear-gradient(270deg, #7c3aed 0%, #9333ea 100%);
+      --accent: #7c3aed;
+      --accent-soft: rgba(124, 58, 237, 0.12);
+      --chip-border: #8b5cf6;
+      --chip-bg: #f5f3ff;
+    }
+    body[data-theme="navy"] {
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-2: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #293548;
+      --hero: linear-gradient(270deg, #1e3a8a 0%, #172554 55%, #090d16 100%);
+      --status-bg: #131d3b;
+      --btn-grad: linear-gradient(270deg, #2563eb 0%, #4f46e5 100%);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --chip-border: #38bdf8;
+      --chip-bg: #1e293b;
+      --shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 88px;
+      transition: background .22s ease, color .22s ease;
+    }
+    .font-math { font-family: 'IBM Plex Mono', monospace; direction: ltr; unicode-bidi: embed; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    input { font-family: inherit; }
+
+    .container { width: 100%; max-width: 680px; margin: 0 auto; padding: 12px 16px 20px; }
+
+    .hero-banner {
+      background: var(--hero);
+      color: #fff;
+      border-radius: 26px;
+      padding: 14px 16px;
+      box-shadow: 0 14px 30px -10px rgba(15, 23, 64, 0.42);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .icon-circle {
+      width: 39px;
+      height: 39px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      position: relative;
+      transition: transform .16s ease, background .16s ease;
+    }
+    .icon-circle:hover { transform: scale(1.07); background: rgba(255, 255, 255, 0.24); }
+    .badge-dot {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: #fbbf24;
+      color: #0f172a;
+      font-size: 10px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-center { text-align: center; flex: 1; }
+    .brand-title { font-size: 25px; font-weight: 900; letter-spacing: -0.4px; line-height: 1.1; }
+    .brand-title .gold { color: #fbbf24; }
+    .brand-sub { font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.88); margin-top: 2px; }
+
+    .status-capsule {
+      margin-top: 11px;
+      width: 100%;
+      background: var(--status-bg);
+      color: #fff;
+      border-radius: 16px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      box-shadow: var(--shadow);
+    }
+    .status-capsule .gold { color: #fcd34d; }
+    .status-sep { opacity: .3; }
+
+    .apk-banner {
+      margin-top: 10px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: var(--btn-grad);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 13px;
+      font-size: 12.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 6px 14px -6px rgba(15, 23, 64, 0.35);
+    }
+    .btn-primary:hover { filter: brightness(1.07); }
+    .btn-outline {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .btn-outline:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 15px;
+      box-shadow: var(--shadow);
+      margin-top: 13px;
+    }
+    .section-title {
+      font-size: 16.5px;
+      font-weight: 900;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .themes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; }
+    .theme-chip {
+      border: 1.5px solid var(--border);
+      background: var(--surface-2);
+      border-radius: 14px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .theme-chip.active {
+      border-color: var(--chip-border);
+      background: var(--chip-bg);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .search-wrap { position: relative; margin-top: 13px; }
+    .search-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      border-radius: 17px;
+      padding: 11px 40px 11px 14px;
+      font-size: 13.5px;
+      font-weight: 700;
+      outline: none;
+      box-shadow: var(--shadow);
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-icon { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 16px; pointer-events: none; }
+
+    .subject-card {
+      width: 100%;
+      text-align: right;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 21px;
+      padding: 13px 15px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 10px;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .subject-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .subject-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      flex-shrink: 0;
+    }
+    .subject-meta { flex: 1; min-width: 0; }
+    .subject-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .subject-name { font-size: 16.5px; font-weight: 900; }
+    .subject-pct { font-size: 12px; font-weight: 800; color: var(--accent); }
+    .subject-sub { font-size: 12px; font-weight: 700; color: var(--muted); margin-top: 2px; }
+    .progress-track {
+      height: 7px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 7px;
+    }
+    .progress-fill { height: 100%; border-radius: 999px; background: var(--btn-grad); transition: width .35s ease; }
+
+    .filter-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 11px; }
+    .filter-pill {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .filter-pill.active { background: var(--btn-grad); color: #fff; border-color: transparent; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+    @media (max-width: 480px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+    .unit-box {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 19px;
+      padding: 13px;
+      margin-top: 11px;
+    }
+    .lesson-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 9px;
+      padding: 9px 11px;
+      border-radius: 13px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .vocab-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12.5px; }
+    .vocab-table th, .vocab-table td { border: 1px solid var(--border); padding: 7px 9px; text-align: right; }
+    .vocab-table th { background: var(--accent-soft); color: var(--accent); font-weight: 900; }
+    .vocab-table tr:nth-child(even) td { background: var(--surface-2); }
+    .point-list { margin: 8px 0 0; padding-right: 18px; line-height: 1.8; font-size: 13.5px; font-weight: 600; }
+
+    .option-btn {
+      width: 100%;
+      text-align: right;
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: 15px;
+      padding: 11px 13px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .option-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+    .option-btn.correct { border-color: #10b981; background: rgba(16, 185, 129, 0.14); color: #059669; }
+    .option-btn.wrong { border-color: #ef4444; background: rgba(239, 68, 68, 0.14); color: #dc2626; }
+    .option-letter {
+      width: 27px;
+      height: 27px;
+      border-radius: 9px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .explanation-box {
+      margin-top: 11px;
+      padding: 11px 13px;
+      border-radius: 13px;
+      background: var(--surface-2);
+      border-right: 4px solid var(--accent);
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+    .math-box {
+      margin-top: 8px;
+      padding: 9px 12px;
+      border-radius: 11px;
+      background: var(--surface-2);
+      border: 1px dashed var(--border);
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .leader-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 13px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      margin-top: 8px;
+    }
+    .leader-row.me { border-color: var(--accent); background: var(--accent-soft); }
+    .rank-num {
+      width: 29px;
+      height: 29px;
+      border-radius: 9px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 12.5px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.08);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .bottom-nav-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 5px;
+    }
+    .nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 6px 4px;
+      border-radius: 13px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .nav-btn.active { color: var(--accent); background: var(--accent-soft); }
+    .nav-btn .ico { font-size: 17px; }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(2, 6, 23, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      padding: 18px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .toast {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-130%);
+      z-index: 80;
+      background: #0f172a;
+      color: #fcd34d;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+      transition: transform .24s ease;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    .kemo-footer {
+      margin-top: 20px;
+      text-align: center;
+      padding: 13px;
+      border-radius: 19px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .kemo-footer-word {
+      font-size: 17px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #e11d64, #f59e0b, #7c3aed, #0284c7, #e11d64);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine { to { background-position: 200% center; } }
+  </style>
+</head>
+<body data-theme="coral">
+  <div id="toast" class="toast"></div>
+
+  <div class="container">
+    <header id="appHeader"></header>
+    <main id="appMain"></main>
+    <footer class="kemo-footer">
+      <div class="kemo-footer-word" dir="ltr">TOP KEMO platkemo ✨</div>
+      <div style="font-size:11.5px;color:var(--muted);font-weight:700;margin-top:4px;">
+        منصة الصف الثالث الإعدادي · المنهج الجديد 2026 / 2027 · الترم الأول
+      </div>
+    </footer>
+  </div>
+
+  <nav class="bottom-nav" aria-label="التنقل الرئيسي">
+    <div class="bottom-nav-inner" id="bottomNav"></div>
+  </nav>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div id="modalContent" class="modal-card"></div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY = 'top_kemo_single_html_v1';
+
+      var THEMES = [
+        { id: 'coral', label: 'وردي مرجاني', swatch: 'linear-gradient(135deg,#fecdd3,#f43f5e)' },
+        { id: 'sky',   label: 'أزرق سماوي',  swatch: 'linear-gradient(135deg,#bae6fd,#06b6d4)' },
+        { id: 'mint',  label: 'أخضر نعناعي', swatch: 'linear-gradient(135deg,#a7f3d0,#14b8a6)' },
+        { id: 'royal', label: 'بنفسجي ملكي', swatch: 'linear-gradient(135deg,#ddd6fe,#9333ea)' },
+        { id: 'navy',  label: 'كحلي ليلي',   swatch: 'linear-gradient(135deg,#334155,#0c4a6e)' }
+      ];
+
+      var AVATARS = ['🎓', '🦁', '🚀', '🌟', '📚', '🏆', '⚡', '👑'];
+
+      var SEED_LEADERS = [
+        { id: 'seed-1', name: 'يوسف أحمد',   avatar: '👑', points: 320, exams: 14 },
+        { id: 'seed-2', name: 'ملك محمود',   avatar: '🌟', points: 280, exams: 12 },
+        { id: 'seed-3', name: 'عمر خالد',    avatar: '🦁', points: 235, exams: 10 },
+        { id: 'seed-4', name: 'سلمى مصطفى',  avatar: '📚', points: 185, exams: 8 },
+        { id: 'seed-5', name: 'زياد طارق',   avatar: '🚀', points: 130, exams: 6 }
+      ];
+
+      var SUBJECTS = [
+        {
+          id: 'arabic',
+          name: 'عربي',
+          fullName: 'اللغة العربية',
+          icon: '📖',
+          iconBg: 'rgba(225, 29, 72, 0.12)',
+          shortSub: 'قراءة ونصوص بمعانيها ومضاداتها + نحو وإملاء',
+          units: [
+            {
+              id: 'ar-u1',
+              title: 'الوحدة 1: قيم تحمي شبابنا',
+              lessons: [
+                {
+                  id: 'ar-l1-1',
+                  title: 'أفضل الشباب (قراءة)',
+                  summary: 'يوضح الدرس صفات الشباب الواعي الذي يبني وطنه بالعلم والعمل وتنظيم الوقت والبعد عن الكسل.',
+                  points: ['استثمار طاقة الشباب في النفع العام.', 'تنظيم الوقت أساس النجاح والتفوق.', 'تحمل المسؤولية يرفع شأن الوطن.'],
+                  vocab: [
+                    { word: 'شَأْو', meaning: 'منزلة ومكانة عالية', antonym: 'انحطاط / تراجع' },
+                    { word: 'تَوانٍ', meaning: 'تقصير وتراخٍ', antonym: 'مبادرة / جدّ' },
+                    { word: 'مِقْدام', meaning: 'شجاع جريء', antonym: 'جبان / متردد' }
+                  ]
+                },
+                {
+                  id: 'ar-l1-2',
+                  title: 'أبيات الحكمة والشباب (نصوص)',
+                  summary: 'دعوة الشباب إلى الجد والمثابرة والتحلي بالأخلاق الكريمة لتحقيق الطموحات.',
+                  points: ['الأخلاق الفاضلة تحمي العلم وتوجهه للخير.', 'الطموح المصحوب بالعمل يصنع المستحيل.'],
+                  vocab: [
+                    { word: 'غُرَر', meaning: 'أفضل الأمور وأشرفها', antonym: 'مساوئ / عيوب' },
+                    { word: 'دَأَبَ', meaning: 'واظب واستمر', antonym: 'انقطع / تكاسل' },
+                    { word: 'رَشَد', meaning: 'استقامة وهداية', antonym: 'غيّ / ضلال' }
+                  ]
+                },
+                {
+                  id: 'ar-l1-3',
+                  title: 'اسم الفاعل والمفعول وصيغ المبالغة (نحو)',
+                  summary: 'صياغة المشتقات من الفعل الثلاثي وغير الثلاثي ودلالتها في الجملة.',
+                  points: ['اسم الفاعل من الثلاثي على وزن (فاعِل) ومن غير الثلاثي بميم مضمومة وكسر ما قبل الآخر.', 'اسم المفعول من الثلاثي على وزن (مَفعول) ومن غير الثلاثي بميم مضمومة وفتح ما قبل الآخر.', 'أوزان صيغ المبالغة القياسية: فعّال، مفعال، فعول، فعيل، فَعِل.'],
+                  vocab: [
+                    { word: 'مُتْقِن', meaning: 'مُجيد للعمل (اسم فاعل)', antonym: 'مُهمِل' },
+                    { word: 'مَحْمُود', meaning: 'مَشكور الأثر (اسم مفعول)', antonym: 'مَذْمُوم' },
+                    { word: 'صَبُور', meaning: 'كثير التحمل (صيغة مبالغة)', antonym: 'جَزُوع' }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'ar-u2',
+              title: 'الوحدة 2: العلم والتفكير السليم',
+              lessons: [
+                {
+                  id: 'ar-l2-1',
+                  title: 'تاج الفضائل — العلم والأدب (نصوص)',
+                  summary: 'شرف الإنسان الحقيقي بعلمه وأدبه وتواضعه لا بماله ومظهره.',
+                  points: ['العلم يرفع صاحبه حياً وميتاً.', 'الجمع بين العلم والأدب أساس الكمال الإنساني.'],
+                  vocab: [
+                    { word: 'الحِلْم', meaning: 'الأناة وضبط النفس', antonym: 'الطيش / الغضب' },
+                    { word: 'يزدان', meaning: 'يتجمل ويتحسن', antonym: 'يشين / يقبح' },
+                    { word: 'أَجَلّ', meaning: 'أعظم وأكرم', antonym: 'أحقر' }
+                  ]
+                },
+                {
+                  id: 'ar-l2-2',
+                  title: 'اسما الزمان والمكان واسم الآلة + الإملاء (نحو)',
+                  summary: 'صياغة اسمي الزمان والمكان على (مَفْعَل / مَفْعِل)، وأسماء الآلة القياسية والسماعية، وقواعد الألف اللينة والهمزات.',
+                  points: ['اسما الزمان والمكان من الثلاثي على وزن مَفْعَل أو مَفْعِل.', 'أسماء الآلة المشتقة مثل: مِفتاح، مِبرد، مِكنسة، غسّالة.', 'تُكتب الألف اللينة ياءً (ى) في الحروف: إلى، على، حتى، بلى.'],
+                  vocab: [
+                    { word: 'مَوْطِن', meaning: 'مكان الإقامة', antonym: 'مَنْفَى / غربة' },
+                    { word: 'مِقْياس', meaning: 'أداة التقدير والقياس', antonym: 'عشوائية' }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'english',
+          name: 'إنجليزي',
+          fullName: 'English Language',
+          icon: '🔤',
+          iconBg: 'rgba(2, 132, 199, 0.12)',
+          shortSub: '6 وحدات كاملة · Identity و AI و Stories والقواعد',
+          units: [
+            {
+              id: 'en-u1',
+              title: 'Unit 1: Identity & Heritage (الهوية والتراث)',
+              lessons: [
+                {
+                  id: 'en-l1',
+                  title: 'Lesson 1: Roots, Culture & Past Simple / Continuous',
+                  summary: 'التحدث عن الهوية الثقافية والجذور واستخدام الماضي البسيط والمستمر مع while / when.',
+                  points: ['Past Simple يعبر عن حدث انتهى في الماضي، وPast Continuous يعبر عن حدث كان مستمراً.', 'While + Past Continuous, Past Simple.'],
+                  vocab: [
+                    { word: 'identity', meaning: 'الهوية الشخصية والثقافية', antonym: 'anonymity' },
+                    { word: 'heritage', meaning: 'التراث الحضاري', antonym: 'modernization' },
+                    { word: 'preserve', meaning: 'يحافظ على / يصون', antonym: 'neglect / destroy' }
+                  ]
+                },
+                {
+                  id: 'en-l2',
+                  title: 'Lesson 2: Collocations & Writing About Identity',
+                  summary: 'التعبيرات الاصطلاحية الشائعة (proud of, belong to, pass down) وكتابة فقرة منظمة.',
+                  points: ['We are proud of our ancient Egyptian heritage.', 'Traditions are passed down from generation to generation.'],
+                  vocab: [
+                    { word: 'authentic', meaning: 'أصيل / حقيقي', antonym: 'fake' },
+                    { word: 'valuable', meaning: 'قيّم / ذو قيمة', antonym: 'worthless' }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'en-u2',
+              title: 'Unit 2: Relationships & Present Perfect',
+              lessons: [
+                {
+                  id: 'en-l3',
+                  title: 'Lesson 1: Friendship, Empathy & Present Perfect',
+                  summary: 'التواصل الإيجابي وبناء الثقة واستخدام المضارع التام (have/has + P.P.) مع since / for / yet / already.',
+                  points: ['for + مدة زمنية كاملة، since + نقطة بداية الحدث.', 'ever في السؤال وnever في النفي الدلالي وyet في نهاية السؤال والنفي.'],
+                  vocab: [
+                    { word: 'empathy', meaning: 'التعاطف وفهم مشاعر الآخرين', antonym: 'indifference' },
+                    { word: 'reliable', meaning: 'جدير بالثقة', antonym: 'unreliable' }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'en-u3',
+              title: 'Unit 3: Tech & AI (التكنولوجيا والذكاء الاصطناعي)',
+              lessons: [
+                {
+                  id: 'en-l4',
+                  title: 'Lesson 1: Smart World & Future Forms (will / going to)',
+                  summary: 'تطبيقات الذكاء الاصطناعي والفرق بين will (تنبؤ بدون دليل / قرار سريع) و going to (خطة / دليل واضح).',
+                  points: ['will + inf للتنبؤات والوعود والقرارات الفورية.', 'am/is/are + going to + inf للخطط المسبقة والأدلة المرئية.'],
+                  vocab: [
+                    { word: 'artificial intelligence', meaning: 'الذكاء الاصطناعي', antonym: 'human intuition' },
+                    { word: 'innovative', meaning: 'مبتكر / إبداعي', antonym: 'traditional' }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'en-u4',
+              title: 'Unit 4: Healthy Lifestyles (أنماط الحياة)',
+              lessons: [
+                {
+                  id: 'en-l5',
+                  title: 'Lesson 1: Digital Balance & Modals (should / must / have to)',
+                  summary: 'الموازنة بين الدراسة واستخدام الشاشات وتقديم النصائح والإلزام.',
+                  points: ['should / shouldn’t للنصيحة، must للضرورة الداخلية، have to للإلزام الخارجي.'],
+                  vocab: [
+                    { word: 'habit', meaning: 'عادة يومية', antonym: 'exception' },
+                    { word: 'essential', meaning: 'أساسي / ضروري', antonym: 'optional' }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'en-u5',
+              title: 'Unit 5: Stories & Past Perfect (القصص والماضي التام)',
+              lessons: [
+                {
+                  id: 'en-l6',
+                  title: 'Lesson 1: Narrative Sequence (had + P.P.)',
+                  summary: 'ترتيب أحداث القصة باستخدام الماضي التام للحدث الأقدم والماضي البسيط للحدث الأحدث.',
+                  points: ['After / As soon as + Past Perfect, Past Simple.', 'Before / By the time + Past Simple, Past Perfect.'],
+                  vocab: [
+                    { word: 'plot', meaning: 'الحبكة الدرامية للقصة', antonym: 'disjointedness' },
+                    { word: 'courageous', meaning: 'شجاع / مقدام', antonym: 'cowardly' }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 'en-u6',
+              title: 'Unit 6: Youth Challenges & Reported Speech',
+              lessons: [
+                {
+                  id: 'en-l7',
+                  title: 'Lesson 1: Leadership, Volunteering & Reported Speech',
+                  summary: 'تحويل الكلام المباشر إلى غير مباشر وإرجاع الأزمنة خطوة للماضي.',
+                  points: ['said (that) أو told + مفعول + (that) مع تحويل الضمائر والأزمنة.', 'now → then | today → that day | tomorrow → the next day.'],
+                  vocab: [
+                    { word: 'volunteer', meaning: 'متطوع لخدمة المجتمع', antonym: 'paid worker' },
+                    { word: 'achieve', meaning: 'يحقق / ينجز', antonym: 'fail' }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'social',
+          name: 'دراسات',
+          fullName: 'الدراسات الاجتماعية',
+          icon: '🌍',
+          iconBg: 'rgba(217, 119, 6, 0.13)',
+          shortSub: 'الجغرافيا الطبيعية + تاريخ مصر الحديث والكفاح الوطني',
+          units: [
+            {
+              id: 'soc-u1',
+              title: 'الوحدة 1: الكشوف الجغرافية والمناخ',
+              lessons: [
+                {
+                  id: 'soc-l1-1',
+                  title: 'الكشوف الجغرافية وتضاريس العالم',
+                  summary: 'رحلات كولومبوس وفاسكو دا جاما وماجلان وتضاريس القارات والأقاليم المناخية.',
+                  points: ['اكتشف فاسكو دا جاما طريق رأس الرجاء الصالح عام 1498م.', 'دار أسطول ماجلان حول الأرض وأثبت كرويتها.', 'الإقليم الاستوائي حار ممطر طوال العام وتنمو به غابات كثيفة.']
+                }
+              ]
+            },
+            {
+              id: 'soc-u2',
+              title: 'الوحدة 2: محمد علي والكفاح الوطني',
+              lessons: [
+                {
+                  id: 'soc-l2-1',
+                  title: 'بناء مصر الحديثة في عهد محمد علي',
+                  summary: 'تولي محمد علي 1805م، مقاومة حملة فريزر 1807م، ومشروعات الزراعة والصناعة والجيش.',
+                  points: ['تصدى أهالي رشيد والحماد لحملة فريزر 1807م.', 'أنشأ محمد علي القناطر الخيرية وحفر ترعة المحمودية.', 'أسس ترسانة بولاق ثم الإسكندرية لبناء الأسطول.']
+                },
+                {
+                  id: 'soc-l2-2',
+                  title: 'الثورة العرابية ومصطفى كامل ومحمد فريد',
+                  summary: 'مطالب مظاهرة عابدين 1881م، ودور مصطفى كامل ومحمد فريد في الكفاح ضد الاحتلال.',
+                  points: ['أصدر مصطفى كامل جريدة اللواء 1900م وأسس الحزب الوطني 1907م.', 'أنشأ محمد فريد مدارس الشعب الليلية ورفض مد امتياز قناة السويس 1910م.']
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'science',
+          name: 'علوم',
+          fullName: 'العلوم المتكاملة',
+          icon: '🔬',
+          iconBg: 'rgba(16, 185, 129, 0.13)',
+          shortSub: 'التفاعلات الكيميائية، الكهرباء، الوراثة والجيولوجيا',
+          units: [
+            {
+              id: 'sci-u1',
+              title: 'الوحدة 1: التفاعلات الكيميائية وسرعتها',
+              lessons: [
+                {
+                  id: 'sci-l1-1',
+                  title: 'الانحلال الحراري والإحلال والأكسدة والاختزال',
+                  summary: 'انحلال أكاسيد وهيدروكسيدات وكربونات الفلزات، ومتسلسلة النشاط الكيميائي.',
+                  points: ['2HgO —Δ→ 2Hg + O₂↑ يتصاعد الأكسجين ويزيد توهج عود الثقاب.', 'الفلز الذي يسبق الهيدروجين في المتسلسلة يحل محل هيدروجين الحمض المخفف.', 'الأكسدة عملية تفقد فيها الذرة إلكترونات، والاختزال تكتسب فيها إلكترونات.']
+                }
+              ]
+            },
+            {
+              id: 'sci-u2',
+              title: 'الوحدة 2: التيار الكهربي والوراثة والحفريات',
+              lessons: [
+                {
+                  id: 'sci-l2-1',
+                  title: 'قانون أوم والتوصيل على التوالي والتوازي',
+                  summary: 'شدة التيار (A)، فرق الجهد (V)، المقاومة (Ω)، وقانون أوم R = V / I.',
+                  points: ['في التوصيل على التوازي تقل المقاومة الكلية ويزداد التيار، وبالتوالي تزداد القوة الدافعة الكهربائية.', 'قانون مندل الأول: عند تزاوج Tt × Tt تظهر الصفة المتنحية بنسبة 25%.', 'الحفرية المرشدة تحدد العمر النسبي للصخور الرسوبية.']
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'math',
+          name: 'رياضيات',
+          fullName: 'الرياضيات',
+          icon: '📐',
+          iconBg: 'rgba(124, 58, 237, 0.13)',
+          shortSub: 'الأسس، الدوال والكسور، التشابه و sin cos tan والإحصاء',
+          units: [
+            {
+              id: 'math-u1',
+              title: 'الوحدة 1: الأسس والدوال والكسور الجبرية',
+              lessons: [
+                {
+                  id: 'math-l1-1',
+                  title: 'قوى القوى والمعادلات الأسية',
+                  summary: 'قوانين الأسس (aᵐ)ⁿ = aᵐⁿ وحل المعادلات الأسية البسيطة.',
+                  points: ['عند ضرب الأساسات المتشابهة نجمع الأسس، وعند القسمة نطرحها.', 'أي عدد غير صفري أسه صفر يساوي 1.']
+                },
+                {
+                  id: 'math-l1-2',
+                  title: 'الدالة التربيعية والكسور الجبرية النسبية',
+                  summary: 'رأس المنحنى، أصفار الدالة، المجال، والمجال المشترك لكسرين جبريين.',
+                  points: ['مجال الدالة الكسرية = ℝ − {أصفار المقام}.', 'المجال المشترك لكسرين = ℝ − اتحاد أصفار مقاميهما.']
+                }
+              ]
+            },
+            {
+              id: 'math-u2',
+              title: 'الوحدة 2: الهندسة وحساب المثلثات والإحصاء',
+              lessons: [
+                {
+                  id: 'math-l2-1',
+                  title: 'التشابه والتمدد وحساب المثلثات (sin · cos · tan)',
+                  summary: 'تشابه المضلعات والمثلثات، التمدد، والنسب المثلثية للزوايا الحادة والخاصة 30° و 45° و 60°.',
+                  points: ['sin θ = المقابل ÷ الوتر | cos θ = المجاور ÷ الوتر | tan θ = المقابل ÷ المجاور.', 'sin 30° = 0.5 | cos 60° = 0.5 | tan 45° = 1.', 'ميل المستقيمين المتوازيين متساوٍ، والمتعامدين حاصل ضرب ميليهما = -1.']
+                },
+                {
+                  id: 'math-l2-2',
+                  title: 'الإحصاء: المدى والانحراف المعياري σ',
+                  summary: 'مقاييس التشتت: المدى = أكبر قيمة − أصغر قيمة، والانحراف المعياري σ = √(Σ(x−x̄)² / n).',
+                  points: ['كلما صغرت قيمة الانحراف المعياري σ زاد تجانس القيم.']
+                }
+              ]
+            }
+          ]
+        }
+      ];
+
+      var QUESTION_BANK = [
+        // Arabic
+        { id:'ar1', subjectId:'arabic', unitId:'ar-u1', lessonId:'ar-l1-1', skill:'معاني ومضادات', prompt:'ما معنى كلمة «شَأْو» في سياق درس أفضل الشباب؟', options:['منزلة ومكانة عالية','تأخر وتراجع','جهل وقسوة','ضيق وملل'], correctIndex:0, explanation:'الشأو هو الغاية الرفيعة والمنزلة العالية التي يسعى إليها الشباب.' },
+        { id:'ar2', subjectId:'arabic', unitId:'ar-u1', lessonId:'ar-l1-1', skill:'معاني ومضادات', prompt:'مضاد كلمة «مِقْدام» هو:', options:['جَبان متردد','كريم معطاء','قوي البنية','سريع الحركة'], correctIndex:0, explanation:'المقدام هو الشجاع الجريء، ومضاده الجبان المتردد.' },
+        { id:'ar3', subjectId:'arabic', unitId:'ar-u1', lessonId:'ar-l1-2', skill:'معاني ومضادات', prompt:'معنى «دَأَبَ» في نصوص الحكمة والشباب:', options:['واظب واستمر في الجد','توقف فجأة','تكاسل وأهمل','سافر بعيداً'], correctIndex:0, explanation:'دأب على الشيء أي واظب عليه وجدّ فيه.' },
+        { id:'ar4', subjectId:'arabic', unitId:'ar-u1', lessonId:'ar-l1-3', skill:'النحو: المشتقات', prompt:'كلمة «مُتْقِن» في جملة «العاملُ مُتْقِنٌ عملَه» تُعد:', options:['اسم فاعل من غير الثلاثي','اسم مفعول','اسم آلة','اسم مكان'], correctIndex:0, explanation:'مأخوذة من الفعل الرباعي أتقن ← يُتقن ← مُتقِن.' },
+        { id:'ar5', subjectId:'arabic', unitId:'ar-u1', lessonId:'ar-l1-3', skill:'النحو: المشتقات', prompt:'أي الكلمات الآتية اسم مفعول من الفعل «باعَ»؟', options:['مَبيع','بائع','بيّاع','مُبيع'], correctIndex:0, explanation:'باع مضارعه يبيع ← نبدل ياء المضارعة ميماً مفتوحة: مَبيع.' },
+        { id:'ar6', subjectId:'arabic', unitId:'ar-u2', lessonId:'ar-l2-1', skill:'نصوص: تاج الفضائل', prompt:'مضاد كلمة «الحِلْم» في نص تاج الفضائل:', options:['الطيش والغضب','الصبر والأناة','العقل والوقار','الكرم والسخاء'], correctIndex:0, explanation:'الحِلم يعني ضبط النفس والأناة، ومضاده الطيش والغضب.' },
+        { id:'ar7', subjectId:'arabic', unitId:'ar-u2', lessonId:'ar-l2-1', skill:'نصوص: تاج الفضائل', prompt:'يؤكد الإمام علي في نص تاج الفضائل أن شرف الإنسان الحقيقي يكون بـ:', options:['علمه وأدبه وحسن خلقه','كثرة التفاخر','المظهر الخارجي فقط','التكبر على الناس'], correctIndex:0, explanation:'العلم والأدب والأخلاق الفاضلة هي التي ترفع قدر الإنسان.' },
+        { id:'ar8', subjectId:'arabic', unitId:'ar-u2', lessonId:'ar-l2-2', skill:'النحو والإملاء', prompt:'«المدرسةُ مُنطلَقُ المواهبِ». نوع المشتق «مُنطلَق»:', options:['اسم مكان','اسم زمان','اسم آلة','صيغة مبالغة'], correctIndex:0, explanation:'دلت الجملة على المكان (المدرسة) فالمشتق اسم مكان.' },
+        { id:'ar9', subjectId:'arabic', unitId:'ar-u2', lessonId:'ar-l2-2', skill:'النحو والإملاء', prompt:'الحرف الذي تُكتب ألفه اللينة ياءً غير منقوطة (ى) مما يلي هو:', options:['إلى','لا','ما','لولا'], correctIndex:0, explanation:'الحروف التي تُكتب ألفها (ى) هي: إلى، على، حتى، بلى.' },
+        { id:'ar10', subjectId:'arabic', unitId:'ar-u1', lessonId:'ar-l1-3', skill:'النحو: صيغ المبالغة', prompt:'وزن صيغة المبالغة في كلمة «صَبُور» هو:', options:['فَعُول','فَعِيل','مِفْعَال','فَعَّال'], correctIndex:0, explanation:'صبور، شكور، غفور كلها صيغ مبالغة على وزن فَعُول.' },
+
+        // English
+        { id:'en1', subjectId:'english', unitId:'en-u1', lessonId:'en-l1', skill:'Vocabulary', prompt:'The antonym of the word "preserve" (يحافظ على) is:', options:['neglect / destroy','protect','guard','support'], correctIndex:0, explanation:'preserve means to keep safe; its opposite is neglect or destroy.' },
+        { id:'en2', subjectId:'english', unitId:'en-u1', lessonId:'en-l1', skill:'Grammar', prompt:'While we ____ the museum, our guide told us an amazing story.', options:['were visiting','visited','visit','are visiting'], correctIndex:0, explanation:'While is followed by Past Continuous (were visiting) for the ongoing background action.' },
+        { id:'en3', subjectId:'english', unitId:'en-u1', lessonId:'en-l2', skill:'Collocations', prompt:'Traditional crafts are passed ____ from one generation to the next.', options:['down','up','off','against'], correctIndex:0, explanation:'"pass down" means to hand traditions or knowledge to younger generations.' },
+        { id:'en4', subjectId:'english', unitId:'en-u2', lessonId:'en-l3', skill:'Grammar', prompt:'Samy and I have been close friends ____ 2020.', options:['since','for','already','yet'], correctIndex:0, explanation:'We use "since" before a specific starting year or point in time.' },
+        { id:'en5', subjectId:'english', unitId:'en-u2', lessonId:'en-l3', skill:'Vocabulary', prompt:'Someone you can always trust and depend on is described as:', options:['reliable','careless','selfish','jealous'], correctIndex:0, explanation:'"Reliable" means trustworthy and dependable.' },
+        { id:'en6', subjectId:'english', unitId:'en-u3', lessonId:'en-l4', skill:'Future Forms', prompt:'Look at those dark clouds! It ____ rain soon.', options:['is going to','will be','rained','has'], correctIndex:0, explanation:'We use "be going to" for predictions supported by clear present evidence.' },
+        { id:'en7', subjectId:'english', unitId:'en-u4', lessonId:'en-l5', skill:'Modals', prompt:'Students ____ get enough sleep to stay focused in class.', options:['should','mustn’t','needn’t','hadn’t'], correctIndex:0, explanation:'"should" gives strong helpful advice.' },
+        { id:'en8', subjectId:'english', unitId:'en-u5', lessonId:'en-l6', skill:'Past Perfect', prompt:'After Mona ____ her homework, she went out to play.', options:['had finished','finishes','was finish','has finish'], correctIndex:0, explanation:'The earlier completed action after "After" takes Past Perfect (had + P.P.).' },
+        { id:'en9', subjectId:'english', unitId:'en-u6', lessonId:'en-l7', skill:'Reported Speech', prompt:'Omar said that he ____ working on a community project the next day.', options:['would be','will be','is','has been'], correctIndex:0, explanation:'In reported speech, "will" changes back one tense to "would".' },
+
+        // Social Studies
+        { id:'soc1', subjectId:'social', unitId:'soc-u1', lessonId:'soc-l1-1', skill:'الكشوف الجغرافية', prompt:'نجح البرتغالي فاسكو دا جاما عام 1498م في الوصول إلى الهند عبر:', options:['طريق رأس الرجاء الصالح','قناة السويس','المحيط المتجمد','نهر المسيسيبي'], correctIndex:0, explanation:'دار فاسكو دا جاما حول إفريقيا عبر رأس الرجاء الصالح.' },
+        { id:'soc2', subjectId:'social', unitId:'soc-u1', lessonId:'soc-l1-1', skill:'المناخ', prompt:'تسقط الأمطار في الإقليم الاستوائي بحوض الأمازون:', options:['طوال العام بغزارة','في الشتاء فقط','مرة كل عشر سنوات','في الصيف فقط'], correctIndex:0, explanation:'المناخ الاستوائي حار وممطر طوال العام.' },
+        { id:'soc3', subjectId:'social', unitId:'soc-u2', lessonId:'soc-l2-1', skill:'تاريخ: محمد علي', prompt:'فشلت حملة «فريزر» الإنجليزية عام 1807م بفضل مقاومة أهالي:', options:['رشيد والحماد','أسوان','الإسماعيلية','بورسعيد'], correctIndex:0, explanation:'تصدى أهالي رشيد والحماد للحملة الإنجليزية ببسالة.' },
+        { id:'soc4', subjectId:'social', unitId:'soc-u2', lessonId:'soc-l2-1', skill:'تاريخ: محمد علي', prompt:'لتحسين الري والزراعة في الدلتا، أنشأ محمد علي:', options:['القناطر الخيرية','خزان أسوان','السد العالي','ترعة السلام'], correctIndex:0, explanation:'أنشأ محمد علي القناطر الخيرية للتحول إلى الري الدائم.' },
+        { id:'soc5', subjectId:'social', unitId:'soc-u2', lessonId:'soc-l2-2', skill:'الكفاح الوطني', prompt:'أسس الزعيم مصطفى كامل جريدة ______ عام 1900م:', options:['اللواء','الأهرام الرياضي','الهلال','الوقائع المصرية'], correctIndex:0, explanation:'أصدر مصطفى كامل جريدة اللواء عام 1900م منبراً للكفاح الوطني.' },
+        { id:'soc6', subjectId:'social', unitId:'soc-u2', lessonId:'soc-l2-2', skill:'الكفاح الوطني', prompt:'أنشأ الزعيم محمد فريد مدارس الشعب الليلية من أجل:', options:['نشر التعليم المجاني بين العمال والفقراء','تدريب الأجانب فقط','إغلاق المصانع','جباية الضرائب'], correctIndex:0, explanation:'دعا محمد فريد إلى مجانية التعليم وأنشأ مدارس الشعب الليلية.' },
+
+        // Science
+        { id:'sci1', subjectId:'science', unitId:'sci-u1', lessonId:'sci-l1-1', skill:'الكيمياء: التفاعلات', math:'2HgO —Δ→ 2Hg + O₂↑', prompt:'عند تسخين أكسيد الزئبق الأحمر ينحل إلى زئبق فضي ويتصاعد غاز:', options:['الأكسجين','الهيدروجين','النيتروجين','الأرجون'], correctIndex:0, explanation:'يتصاعد غاز الأكسجين الذي يزيد توهج عود الثقاب.' },
+        { id:'sci2', subjectId:'science', unitId:'sci-u1', lessonId:'sci-l1-1', skill:'النشاط الكيميائي', prompt:'لماذا لا يتفاعل النحاس (Cu) مع حمض الهيدروكلوريك المخفف؟', options:['لأنه يلي الهيدروجين في متسلسلة النشاط الكيميائي','لأنه موصل جيد للكهرباء','لأنه سائل','لأنه لا يذوب في الزيت'], correctIndex:0, explanation:'الفلزات التي تلي الهيدروجين أقل نشاطاً منه فلا تحل محله في الأحماض.' },
+        { id:'sci3', subjectId:'science', unitId:'sci-u1', lessonId:'sci-l1-1', skill:'التعادل', math:'HCl + NaOH → NaCl + H₂O', prompt:'ينتج عن تفاعل حمض مع قلوي (تفاعل التعادل):', options:['ملح وماء','غاز الهيدروجين فقط','أكسيد فلز','كربونات'], correctIndex:0, explanation:'التعادل هو تفاعل حمض مع قلوي لتكوين ملح وماء.' },
+        { id:'sci4', subjectId:'science', unitId:'sci-u2', lessonId:'sci-l2-1', skill:'الكهرباء: قانون أوم', math:'R = V / I = 12 / 3', prompt:'موصل فرق الجهد بين طرفيه 12V ويمر به تيار شدته 3A، فتكون مقاومته:', options:['4 Ω','36 Ω','9 Ω','15 Ω'], correctIndex:0, explanation:'من قانون أوم: المقاومة R = V ÷ I = 12 ÷ 3 = 4 أوم.' },
+        { id:'sci5', subjectId:'science', unitId:'sci-u2', lessonId:'sci-l2-1', skill:'الوراثة: مندل', math:'Tt × Tt → TT : 2Tt : tt', prompt:'عند تزاوج نباتي بسلة كلاهما طويل الساق هجين (Tt × Tt)، نسبة قصير الساق (tt) هي:', options:['25%','50%','75%','100%'], correctIndex:0, explanation:'ينتج فرد واحد متنحي قصير الساق من كل 4 أفراد أي 25%.' },
+        { id:'sci6', subjectId:'science', unitId:'sci-u2', lessonId:'sci-l2-1', skill:'الجيولوجيا: الحفريات', prompt:'الحفرية التي تدل على العمر النسبي للصخور الرسوبية تُسمى:', options:['الحفرية المرشدة','الكهرمان فقط','الصخر الناري','الرمال'], correctIndex:0, explanation:'الحفرية المرشدة عاشت لمدى زمني قصير وانتشرت جغرافياً على نطاق واسع.' },
+
+        // Math
+        { id:'m1', subjectId:'math', unitId:'math-u1', lessonId:'math-l1-1', skill:'الأسس: قوى القوى', math:'(2³)² ÷ 2⁴ = 2⁶ ÷ 2⁴', prompt:'بسّط المقدار (2³)² ÷ 2⁴ =', options:['4','2','8','16'], correctIndex:0, explanation:'(2³)² = 2⁶، وبقسمتها على 2⁴ نطرح الأسس ← 2² = 4.' },
+        { id:'m2', subjectId:'math', unitId:'math-u1', lessonId:'math-l1-1', skill:'المعادلات الأسية', math:'3^(x - 1) = 27 = 3³', prompt:'حل المعادلة الأسية 3^(x − 1) = 27:', options:['x = 4','x = 3','x = 2','x = 9'], correctIndex:0, explanation:'بما أن الأساس يساوي الأساس ← x − 1 = 3 ← x = 4.' },
+        { id:'m3', subjectId:'math', unitId:'math-u1', lessonId:'math-l1-2', skill:'الدالة التربيعية', math:'f(x) = (x - 3)² + 2', prompt:'نقطة رأس المنحنى للدالة f(x) = (x − 3)² + 2 هي:', options:['(3, 2)','(−3, 2)','(3, −2)','(2, 3)'], correctIndex:0, explanation:'من الصورة القياسية رأس المنحنى يساوي (h, k) = (3, 2).' },
+        { id:'m4', subjectId:'math', unitId:'math-u1', lessonId:'math-l1-2', skill:'الكسور الجبرية', math:'n(x) = (x + 1) / (x² - 16)', prompt:'مجال الدالة الكسرية n(x) = (x + 1) / (x² − 16) هو:', options:['ℝ − {4, −4}','ℝ − {−1}','ℝ − {16}','ℝ'], correctIndex:0, explanation:'المجال = ℝ فرق أصفار المقام، وبوضع x² − 16 = 0 نحصل على ±4.' },
+        { id:'m5', subjectId:'math', unitId:'math-u2', lessonId:'math-l2-1', skill:'حساب المثلثات', math:'2 sin(30°) + cos(60°) + tan²(45°)', prompt:'احسب قيمة: 2 sin(30°) + cos(60°) + tan²(45°):', options:['2.5','1.5','3','2'], correctIndex:0, explanation:'2(0.5) + 0.5 + 1² = 1 + 0.5 + 1 = 2.5.' },
+        { id:'m6', subjectId:'math', unitId:'math-u2', lessonId:'math-l2-1', skill:'التوازي والتعامد', math:'m₁ × m₂ = -1', prompt:'إذا كان ميل المستقيم L₁ هو −2/3، فإن ميل المستقيم العمودي عليه يساوي:', options:['3/2','−3/2','2/3','−2/3'], correctIndex:0, explanation:'ميل العمودي نأتي به بقلب الكسر وتغيير الإشارة: +3/2.' },
+        { id:'m7', subjectId:'math', unitId:'math-u2', lessonId:'math-l2-2', skill:'الإحصاء: الانحراف المعياري', math:'σ = √(36 / 4)', prompt:'إذا كان Σ(x − x̄)² = 36 لعدد n = 4 قيم، فإن الانحراف المعياري σ =', options:['3','9','6','12'], correctIndex:0, explanation:'σ = √(36 ÷ 4) = √9 = 3.' }
+      ];
+
+      var NOTIFICATIONS = [
+        { id:'n1', title:'انطلاق سباق المركز الأول 🏆', body:'كل إجابة صحيحة في أي امتحان تمنحك +5 ⭐ فوراً وتقربك من المركز #1.', time:'الآن', read:false },
+        { id:'n2', title:'جداول المعاني والمضادات 📖', body:'تمت إضافة جداول المعنى والمضاد داخل دروس العربي والإنجليزي مع اختبارات لكل درس.', time:'منذ ساعة', read:false },
+        { id:'n3', title:'اختبارات متجددة في 5 مواد 🎯', body:'يمكنك إعادة الاختبار بنموذج مختلف وأسئلة مرتبة عشوائياً في كل محاولة.', time:'اليوم', read:true }
+      ];
+
+      function loadState() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+        return {
+          studentName: '',
+          studentAvatar: '🎓',
+          themeId: 'coral',
+          points: 0,
+          completedLessons: {},
+          examsTaken: 0,
+          bestScorePct: 0,
+          notifications: NOTIFICATIONS
+        };
+      }
+
+      var state = loadState();
+      var ui = {
+        view: 'home',            // home | lessons | lesson-detail | exams | exam-runner | leaderboard | profile | notifications
+        showThemes: true,
+        searchQuery: '',
+        subjectFilter: 'all',
+        selectedSubjectId: 'arabic',
+        selectedLessonId: null,
+        examState: null,         // { title, questions, index, answers, finished, mode, subjectId, lessonId }
+        examSeedCounter: 1
+      };
+
+      function saveState() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+      }
+
+      function showToast(msg) {
+        var el = document.getElementById('toast');
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(el._t);
+        el._t = setTimeout(function () { el.classList.remove('show'); }, 2400);
+      }
+
+      function getRankTitle(pts) {
+        if (pts >= 300) return 'أسطورة الكيمو 👑';
+        if (pts >= 200) return 'متفوق ذهبي 🏆';
+        if (pts >= 100) return 'نجم صاعد ⭐';
+        if (pts >= 25)  return 'طالب مجتهد 🚀';
+        return 'لسه بتبدأ 🌱';
+      }
+
+      function getTotalLessonsCount() {
+        var c = 0;
+        SUBJECTS.forEach(function (s) { s.units.forEach(function (u) { c += u.lessons.length; }); });
+        return c;
+      }
+
+      function getOverallProgressPct() {
+        var total = getTotalLessonsCount();
+        var done = Object.keys(state.completedLessons).filter(function (k) { return state.completedLessons[k]; }).length;
+        return total ? Math.round((done / total) * 100) : 0;
+      }
+
+      function getSubjectProgress(subj) {
+        var total = 0, done = 0;
+        subj.units.forEach(function (u) {
+          u.lessons.forEach(function (l) {
+            total++;
+            if (state.completedLessons[l.id]) done++;
+          });
+        });
+        return { done: done, total: total, pct: total ? Math.round((done / total) * 100) : 0 };
+      }
+
+      function getLeaderboard() {
+        var list = SEED_LEADERS.map(function (x) { return Object.assign({}, x, { isMe: false }); });
+        list.push({
+          id: 'me',
+          name: state.studentName || 'طالب جديد (أنت)',
+          avatar: state.studentAvatar || '🎓',
+          points: state.points,
+          exams: state.examsTaken,
+          isMe: true
+        });
+        list.sort(function (a, b) { return b.points - a.points; });
+        return list;
+      }
+
+      function getMyRank() {
+        var list = getLeaderboard();
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].isMe) return i + 1;
+        }
+        return null;
+      }
+
+      function shuffleArray(arr, seedOffset) {
+        var copy = arr.slice();
+        for (var i = copy.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.abs(Math.sin((i + 1) * (seedOffset + 1)) * 10000)) % (i + 1);
+          var tmp = copy[i];
+          copy[i] = copy[j];
+          copy[j] = tmp;
+        }
+        return copy;
+      }
+
+      function shuffleQuestionOptions(q, seedOffset) {
+        var tagged = q.options.map(function (opt, idx) {
+          return { text: opt, isCorrect: idx === q.correctIndex };
+        });
+        var mixed = shuffleArray(tagged, seedOffset + q.id.length);
+        var newCorrect = 0;
+        for (var i = 0; i < mixed.length; i++) {
+          if (mixed[i].isCorrect) newCorrect = i;
+        }
+        return {
+          id: q.id,
+          subjectId: q.subjectId,
+          skill: q.skill,
+          math: q.math || '',
+          prompt: q.prompt,
+          options: mixed.map(function (m) { return m.text; }),
+          correctIndex: newCorrect,
+          explanation: q.explanation
+        };
+      }
+
+      function startExam(title, pool, limit, mode, subjectId, lessonId) {
+        ui.examSeedCounter++;
+        var mixedPool = shuffleArray(pool, ui.examSeedCounter * 7 + Date.now() % 97);
+        var chosen = mixedPool.slice(0, Math.min(limit, mixedPool.length)).map(function (q, idx) {
+          return shuffleQuestionOptions(q, ui.examSeedCounter + idx);
+        });
+        ui.examState = {
+          title: title,
+          pool: pool,
+          limit: limit,
+          mode: mode,
+          subjectId: subjectId || null,
+          lessonId: lessonId || null,
+          questions: chosen,
+          index: 0,
+          answers: {},
+          earnedThisExam: 0,
+          finished: false
+        };
+        ui.view = 'exam-runner';
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function openNameModal(forced) {
+        var backdrop = document.getElementById('modalBackdrop');
+        var box = document.getElementById('modalContent');
+        var tempAvatar = state.studentAvatar || '🎓';
+        box.innerHTML =
+          '<div style="text-align:center;">' +
+            '<div style="font-size:34px;">🏆</div>' +
+            '<h3 style="margin:6px 0 4px;font-weight:900;">سجّل اسمك في سباق TOP KEMO</h3>' +
+            '<p style="margin:0;font-size:12.5px;color:var(--muted);font-weight:700;">' +
+              (state.studentName ? 'عدّل اسمك وشخصيتك في لوحة المتصدرين.' : 'اكتب اسمك لتحصل على +20 ⭐ ترحيبية وتنافس على المركز #1!') +
+            '</p>' +
+          '</div>' +
+          '<div style="margin-top:14px;">' +
+            '<label style="display:block;font-size:12.5px;font-weight:800;margin-bottom:6px;">اسم الطالب / الطالبة:</label>' +
+            '<input id="nameInput" class="search-input" style="padding:10px 14px;" maxlength="28" placeholder="مثال: كريم محمد" value="' + escapeHtml(state.studentName) + '" />' +
+          '</div>' +
+          '<div style="margin-top:12px;">' +
+            '<div style="font-size:12px;font-weight:800;margin-bottom:6px;">اختر رمزك:</div>' +
+            '<div id="avatarPicker" style="display:flex;flex-wrap:wrap;gap:7px;">' +
+              AVATARS.map(function (av) {
+                return '<button type="button" data-av="' + av + '" class="filter-pill ' + (av === tempAvatar ? 'active' : '') + '" style="font-size:18px;padding:6px 10px;">' + av + '</button>';
+              }).join('') +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">' +
+            (!forced ? '<button type="button" id="cancelNameBtn" class="btn-outline">لاحقاً</button>' : '') +
+            '<button type="button" id="saveNameBtn" class="btn-primary">حفظ والدخول للسباق ⭐</button>' +
+          '</div>';
+
+        backdrop.classList.add('open');
+
+        box.querySelectorAll('[data-av]').forEach(function (btn) {
+          btn.onclick = function () {
+            tempAvatar = btn.getAttribute('data-av');
+            box.querySelectorAll('[data-av]').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+          };
+        });
+        if (!forced) {
+          document.getElementById('cancelNameBtn').onclick = function () { backdrop.classList.remove('open'); };
+        }
+        document.getElementById('saveNameBtn').onclick = function () {
+          var val = document.getElementById('nameInput').value.trim();
+          if (val.length < 2) {
+            showToast('من فضلك اكتب اسمك (حرفين على الأقل)');
+            return;
+          }
+          var isFirstJoin = !state.studentName;
+          state.studentName = val;
+          state.studentAvatar = tempAvatar;
+          if (isFirstJoin) {
+            state.points += 20;
+            showToast('أهلاً يا ' + val + '! حصلت على +20 ⭐ هدية البداية');
+          } else {
+            showToast('تم تحديث بياناتك بنجاح ✅');
+          }
+          saveState();
+          backdrop.classList.remove('open');
+          render();
+        };
+      }
+
+      function openApkModal() {
+        var backdrop = document.getElementById('modalBackdrop');
+        var box = document.getElementById('modalContent');
+        box.innerHTML =
+          '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">' +
+            '<h3 style="margin:0;font-size:16px;font-weight:900;">📲 تثبيت تطبيق TOP KEMO platkemo</h3>' +
+            '<button type="button" id="closeApkModal" class="btn-outline">✕</button>' +
+          '</div>' +
+          '<p style="font-size:13px;color:var(--muted);font-weight:700;line-height:1.7;">' +
+            'يمكنك حفظ هذا الملف وتشغيله كتطبيق مباشر على الموبايل أو الكمبيوتر:' +
+          '</p>' +
+          '<ol style="font-size:12.5px;font-weight:700;line-height:1.9;padding-right:18px;">' +
+            '<li>على أندرويد (Chrome): افتح قائمة المتصفح (⋮) واختر <strong>الإضافة إلى الشاشة الرئيسية / Install App</strong>.</li>' +
+            '<li>على آيفون (Safari): اضغط زر المشاركة (Share) ثم <strong>Add to Home Screen</strong>.</li>' +
+            '<li>أو احتفظ بملف <code>index.html</code> هذا وافتحه بأي متصفح ليشتغل بدون إنترنت.</li>' +
+          '</ol>' +
+          '<div style="display:flex;justify-content:flex-end;margin-top:14px;">' +
+            '<button type="button" id="okApkModal" class="btn-primary">تم الفهم ✅</button>' +
+          '</div>';
+        backdrop.classList.add('open');
+        document.getElementById('closeApkModal').onclick = function () { backdrop.classList.remove('open'); };
+        document.getElementById('okApkModal').onclick = function () { backdrop.classList.remove('open'); };
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function renderHeader() {
+        var unreadCount = state.notifications.filter(function (n) { return !n.read; }).length;
+        var rank = getMyRank();
+        var progress = getOverallProgressPct();
+
+        var html =
+          '<div class="hero-banner">' +
+            '<div style="display:flex;gap:7px;">' +
+              '<button type="button" class="icon-circle" id="hdrLeaderBtn" title="لوحة المتصدرين">🏆</button>' +
+              '<button type="button" class="icon-circle" id="hdrThemeBtn" title="تغيير لون التطبيق">🎨</button>' +
+            '</div>' +
+            '<button type="button" class="brand-center" id="hdrHomeBtn">' +
+              '<div class="brand-title" dir="ltr">TOP <span class="gold">KEMO</span></div>' +
+              '<div class="brand-sub">platkemo · رقم 1 في تالتة إعدادي 2027</div>' +
+            '</button>' +
+            '<div style="display:flex;gap:7px;">' +
+              '<button type="button" class="icon-circle" id="hdrNotifBtn" title="التنبيهات">' +
+                '🔔' + (unreadCount ? '<span class="badge-dot">' + unreadCount + '</span>' : '') +
+              '</button>' +
+              '<button type="button" class="icon-circle" id="hdrProfileBtn" title="حسابي">' + escapeHtml(state.studentAvatar || '🎓') + '</button>' +
+            '</div>' +
+          '</div>' +
+          '<button type="button" class="status-capsule" id="hdrStatusBtn">' +
+            '<span>مستواك: <span class="gold">' + getRankTitle(state.points) + '</span></span>' +
+            '<span class="status-sep">|</span>' +
+            '<span>نقطك: <span class="gold font-math tabular">' + state.points + ' ⭐</span></span>' +
+            '<span class="status-sep">|</span>' +
+            '<span>' + (state.studentName ? 'المركز: <span class="gold font-math tabular">#' + rank + '</span>' : 'تقدمك: <span class="gold font-math tabular">' + progress + '%</span>') + '</span>' +
+          '</button>';
+
+        if (ui.view === 'home') {
+          html +=
+            '<button type="button" class="apk-banner" id="hdrApkBtn">' +
+              '<span style="font-size:13px;font-weight:900;">📲 لو عاوز تنزل التطبيق APK من هنا</span>' +
+              '<span class="btn-primary">تنزيل</span>' +
+            '</button>';
+        }
+
+        document.getElementById('appHeader').innerHTML = html;
+
+        document.getElementById('hdrLeaderBtn').onclick = function () { ui.view = 'leaderboard'; render(); };
+        document.getElementById('hdrThemeBtn').onclick = function () { ui.view = 'home'; ui.showThemes = !ui.showThemes; render(); };
+        document.getElementById('hdrHomeBtn').onclick = function () { ui.view = 'home'; render(); };
+        document.getElementById('hdrNotifBtn').onclick = function () {
+          state.notifications.forEach(function (n) { n.read = true; });
+          saveState();
+          ui.view = 'notifications';
+          render();
+        };
+        document.getElementById('hdrProfileBtn').onclick = function () { ui.view = 'profile'; render(); };
+        document.getElementById('hdrStatusBtn').onclick = function () { ui.view = 'leaderboard'; render(); };
+        var apkBtn = document.getElementById('hdrApkBtn');
+        if (apkBtn) apkBtn.onclick = openApkModal;
+      }
+
+      function renderBottomNav() {
+        var tabs = [
+          { id: 'home',        label: 'الرئيسية',  ico: '🏠', match: ['home'] },
+          { id: 'lessons',     label: 'الدروس',    ico: '📖', match: ['lessons', 'lesson-detail'] },
+          { id: 'exams',       label: 'الاختبارات', ico: '❓', match: ['exams', 'exam-runner'] },
+          { id: 'leaderboard', label: 'المتصدرين', ico: '🏆', match: ['leaderboard'] },
+          { id: 'profile',     label: 'حسابي',     ico: '👤', match: ['profile', 'notifications'] }
+        ];
+        var navEl = document.getElementById('bottomNav');
+        navEl.innerHTML = tabs.map(function (t) {
+          var active = t.match.indexOf(ui.view) !== -1;
+          return '<button type="button" class="nav-btn ' + (active ? 'active' : '') + '" data-nav="' + t.id + '">' +
+            '<span class="ico">' + t.ico + '</span><span>' + t.label + '</span>' +
+          '</button>';
+        }).join('');
+        navEl.querySelectorAll('[data-nav]').forEach(function (btn) {
+          btn.onclick = function () {
+            ui.view = btn.getAttribute('data-nav');
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          };
+        });
+      }
+
+      function renderHome() {
+        var q = ui.searchQuery.trim().toLowerCase();
+        var filtered = SUBJECTS.filter(function (s) {
+          if (!q) return true;
+          return s.name.toLowerCase().indexOf(q) !== -1 ||
+                 s.fullName.toLowerCase().indexOf(q) !== -1 ||
+                 s.shortSub.toLowerCase().indexOf(q) !== -1;
+        });
+
+        var html = '';
+        if (ui.showThemes) {
+          html +=
+            '<section class="card">' +
+              '<div class="section-title"><span>🎨 لون التطبيق (5 ألوان):</span></div>' +
+              '<div class="themes-grid">' +
+                THEMES.map(function (th) {
+                  return '<button type="button" class="theme-chip ' + (state.themeId === th.id ? 'active' : '') + '" data-theme-id="' + th.id + '">' +
+                    '<span class="swatch" style="background:' + th.swatch + ';"></span>' +
+                    '<span>' + th.label + '</span>' +
+                  '</button>';
+                }).join('') +
+              '</div>' +
+            '</section>';
+        }
+
+        html +=
+          '<div style="margin-top:16px;text-align:center;">' +
+            '<div style="font-size:22px;font-weight:900;">هتذاكر إيه النهارده؟ 🤔</div>' +
+            '<div style="font-size:13px;color:var(--muted);font-weight:700;margin-top:2px;">' +
+              (state.studentName ? 'أهلاً يا ' + escapeHtml(state.studentName) + ' · كل إجابة صح بـ +5 ⭐' : 'اختار مادة أو سجّل اسمك لتجميع النقاط بالخمسة (+5 ⭐)') +
+            '</div>' +
+            (!state.studentName
+              ? '<div style="margin-top:9px;"><button type="button" id="homeRegisterBtn" class="btn-primary">سجّل اسمك واحصل على +20 ⭐</button></div>'
+              : '') +
+          '</div>' +
+          '<div class="search-wrap">' +
+            '<span class="search-icon">🔍</span>' +
+            '<input id="subjectSearchInput" class="search-input" placeholder="دور على مادة (عربي، إنجليزي، رياضيات...)" value="' + escapeHtml(ui.searchQuery) + '" />' +
+          '</div>';
+
+        filtered.forEach(function (subj) {
+          var p = getSubjectProgress(subj);
+          var qCount = QUESTION_BANK.filter(function (x) { return x.subjectId === subj.id; }).length;
+          html +=
+            '<button type="button" class="subject-card" data-open-subj="' + subj.id + '">' +
+              '<div class="subject-icon" style="background:' + subj.iconBg + ';">' + subj.icon + '</div>' +
+              '<div class="subject-meta">' +
+                '<div class="subject-top">' +
+                  '<span class="subject-name">' + subj.name + ' <span style="font-size:12px;color:var(--muted);">(' + subj.units.length + ' وحدات)</span></span>' +
+                  '<span class="subject-pct font-math tabular">' + p.pct + '% (' + p.done + '/' + p.total + ')</span>' +
+                '</div>' +
+                '<div class="subject-sub">' + subj.shortSub + ' · ' + qCount + ' سؤال</div>' +
+                '<div class="progress-track"><div class="progress-fill" style="width:' + p.pct + '%;"></div></div>' +
+              '</div>' +
+            '</button>';
+        });
+
+        html +=
+          '<section class="card">' +
+            '<div class="section-title"><span>🎯 اختبارات سريعة بنظام النقاط (+5 ⭐)</span></div>' +
+            '<div class="grid-2">' +
+              '<button type="button" class="btn-primary" id="quickCompExam">امتحان شامل الـ 5 مواد 🔀</button>' +
+              '<button type="button" class="btn-outline" id="quickAllExams">كل نماذج الامتحانات 📚</button>' +
+            '</div>' +
+          '</section>';
+
+        document.getElementById('appMain').innerHTML = html;
+
+        document.querySelectorAll('[data-theme-id]').forEach(function (btn) {
+          btn.onclick = function () {
+            state.themeId = btn.getAttribute('data-theme-id');
+            document.body.setAttribute('data-theme', state.themeId);
+            saveState();
+            render();
+          };
+        });
+        var regBtn = document.getElementById('homeRegisterBtn');
+        if (regBtn) regBtn.onclick = function () { openNameModal(false); };
+
+        var searchEl = document.getElementById('subjectSearchInput');
+        searchEl.oninput = function (e) {
+          ui.searchQuery = e.target.value;
+          var pos = searchEl.selectionStart;
+          render();
+          var next = document.getElementById('subjectSearchInput');
+          if (next) { next.focus(); next.setSelectionRange(pos, pos); }
+        };
+
+        document.querySelectorAll('[data-open-subj]').forEach(function (btn) {
+          btn.onclick = function () {
+            ui.selectedSubjectId = btn.getAttribute('data-open-subj');
+            ui.view = 'lessons';
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          };
+        });
+
+        document.getElementById('quickCompExam').onclick = function () {
+          startExam('امتحان شامل الـ 5 مواد (نموذج متجدد)', QUESTION_BANK, 15, 'comprehensive');
+        };
+        document.getElementById('quickAllExams').onclick = function () {
+          ui.view = 'exams';
+          render();
+        };
+      }
+
+      function renderLessons() {
+        var subj = SUBJECTS.find(function (s) { return s.id === ui.selectedSubjectId; }) || SUBJECTS[0];
+        var html =
+          '<section class="card">' +
+            '<div class="section-title"><span>📖 تصفّح الدروس والمناهج</span></div>' +
+            '<div class="filter-row">' +
+              SUBJECTS.map(function (s) {
+                return '<button type="button" class="filter-pill ' + (s.id === subj.id ? 'active' : '') + '" data-sel-subj="' + s.id + '">' + s.icon + ' ' + s.name + '</button>';
+              }).join('') +
+            '</div>' +
+            '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">' +
+              '<div><strong style="font-size:16px;">' + subj.fullName + '</strong><div style="font-size:12px;color:var(--muted);font-weight:700;">' + subj.shortSub + '</div></div>' +
+              '<button type="button" class="btn-primary" data-subj-exam="' + subj.id + '">امتحان المادة الكامل 🎯</button>' +
+            '</div>' +
+          '</section>';
+
+        subj.units.forEach(function (u) {
+          var uQs = QUESTION_BANK.filter(function (q) { return q.unitId === u.id; });
+          html +=
+            '<div class="unit-box">' +
+              '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">' +
+                '<strong style="font-size:14.5px;">' + u.title + '</strong>' +
+                '<button type="button" class="btn-outline" data-unit-exam="' + u.id + '">امتحان الوحدة (' + uQs.length + ' س)</button>' +
+              '</div>';
+          u.lessons.forEach(function (l) {
+            var done = !!state.completedLessons[l.id];
+            html +=
+              '<div class="lesson-row">' +
+                '<div style="flex:1;min-width:180px;">' +
+                  '<div style="font-size:13.5px;font-weight:800;">' + (done ? '✅ ' : '📘 ') + l.title + '</div>' +
+                  '<div style="font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px;">' + l.summary + '</div>' +
+                '</div>' +
+                '<div style="display:flex;gap:6px;">' +
+                  '<button type="button" class="btn-outline" data-read-lesson="' + l.id + '">اقرأ الدرس</button>' +
+                  '<button type="button" class="btn-primary" data-lesson-exam="' + l.id + '">امتحان</button>' +
+                '</div>' +
+              '</div>';
+          });
+          html += '</div>';
+        });
+
+        document.getElementById('appMain').innerHTML = html;
+
+        document.querySelectorAll('[data-sel-subj]').forEach(function (b) {
+          b.onclick = function () { ui.selectedSubjectId = b.getAttribute('data-sel-subj'); render(); };
+        });
+        document.querySelectorAll('[data-subj-exam]').forEach(function (b) {
+          b.onclick = function () {
+            var sid = b.getAttribute('data-subj-exam');
+            var s = SUBJECTS.find(function (x) { return x.id === sid; });
+            var pool = QUESTION_BANK.filter(function (q) { return q.subjectId === sid; });
+            startExam('امتحان ' + s.fullName + ' الشامل', pool, 10, 'subject', sid);
+          };
+        });
+        document.querySelectorAll('[data-unit-exam]').forEach(function (b) {
+          b.onclick = function () {
+            var uid = b.getAttribute('data-unit-exam');
+            var pool = QUESTION_BANK.filter(function (q) { return q.unitId === uid; });
+            startExam('امتحان الوحدة التطبيقي', pool, 8, 'unit', subj.id);
+          };
+        });
+        document.querySelectorAll('[data-read-lesson]').forEach(function (b) {
+          b.onclick = function () { ui.selectedLessonId = b.getAttribute('data-read-lesson'); ui.view = 'lesson-detail'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+        });
+        document.querySelectorAll('[data-lesson-exam]').forEach(function (b) {
+          b.onclick = function () {
+            var lid = b.getAttribute('data-lesson-exam');
+            var direct = QUESTION_BANK.filter(function (q) { return q.lessonId === lid; });
+            var pool = direct.length >= 3 ? direct : QUESTION_BANK.filter(function (q) { return q.subjectId === subj.id; });
+            startExam('امتحان الدرس التفاعلي', pool, 5, 'lesson', subj.id, lid);
+          };
+        });
+      }
+
+      function renderLessonDetail() {
+        var foundSubj = null, foundUnit = null, foundLesson = null;
+        SUBJECTS.forEach(function (s) {
+          s.units.forEach(function (u) {
+            u.lessons.forEach(function (l) {
+              if (l.id === ui.selectedLessonId) { foundSubj = s; foundUnit = u; foundLesson = l; }
+            });
+          });
+        });
+        if (!foundLesson) { ui.view = 'lessons'; renderLessons(); return; }
+
+        var done = !!state.completedLessons[foundLesson.id];
+        var html =
+          '<section class="card">' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
+              '<button type="button" class="btn-outline" id="backLessonsBtn">→ رجوع للدروس</button>' +
+              '<button type="button" class="btn-primary" id="toggleDoneBtn">' + (done ? '✅ تم إتمام الدرس' : '✓ علّم كمكتمل (+10 ⭐)') + '</button>' +
+            '</div>' +
+            '<div style="margin-top:12px;">' +
+              '<div style="font-size:12px;color:var(--accent);font-weight:800;">' + foundSubj.fullName + ' · ' + foundUnit.title + '</div>' +
+              '<h2 style="margin:4px 0 8px;font-size:19px;font-weight:900;">' + foundLesson.title + '</h2>' +
+              '<p style="font-size:13.5px;line-height:1.8;font-weight:600;margin:0;">' + foundLesson.summary + '</p>' +
+            '</div>' +
+            '<div style="margin-top:14px;">' +
+              '<strong style="font-size:14px;">📌 أهم النقاط والملخص:</strong>' +
+              '<ul class="point-list">' +
+                foundLesson.points.map(function (pt) { return '<li>' + escapeHtml(pt) + '</li>'; }).join('') +
+              '</ul>' +
+            '</div>';
+
+        if (foundLesson.vocab && foundLesson.vocab.length) {
+          html +=
+            '<div style="margin-top:15px;">' +
+              '<strong style="font-size:14px;">📚 جدول المعاني والمضادات:</strong>' +
+              '<table class="vocab-table"><thead><tr><th>الكلمة</th><th>المعنى</th><th>المضاد</th></tr></thead><tbody>' +
+                foundLesson.vocab.map(function (v) {
+                  return '<tr><td><strong>' + escapeHtml(v.word) + '</strong></td><td>' + escapeHtml(v.meaning) + '</td><td>' + escapeHtml(v.antonym) + '</td></tr>';
+                }).join('') +
+              '</tbody></table>' +
+            '</div>';
+        }
+
+        html +=
+            '<div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">' +
+              '<button type="button" class="btn-primary" id="startThisLessonExam">ابدأ امتحان هذا الدرس (+5 ⭐ للسؤال)</button>' +
+            '</div>' +
+          '</section>';
+
+        document.getElementById('appMain').innerHTML = html;
+
+        document.getElementById('backLessonsBtn').onclick = function () { ui.view = 'lessons'; render(); };
+        document.getElementById('toggleDoneBtn').onclick = function () {
+          if (!state.completedLessons[foundLesson.id]) {
+            state.completedLessons[foundLesson.id] = true;
+            state.points += 10;
+            showToast('أحسنت! تم إتمام الدرس +10 ⭐');
+          } else {
+            delete state.completedLessons[foundLesson.id];
+          }
+          saveState();
+          render();
+        };
+        document.getElementById('startThisLessonExam').onclick = function () {
+          var direct = QUESTION_BANK.filter(function (q) { return q.lessonId === foundLesson.id; });
+          var pool = direct.length >= 3 ? direct : QUESTION_BANK.filter(function (q) { return q.subjectId === foundSubj.id; });
+          startExam('امتحان: ' + foundLesson.title, pool, 5, 'lesson', foundSubj.id, foundLesson.id);
+        };
+      }
+
+      function renderExamsHub() {
+        var html =
+          '<section class="card">' +
+            '<div class="section-title"><span>🎯 مركز الامتحانات الشاملة والمتنوعة</span><span class="filter-pill active">+' + 5 + ' ⭐ لكل سؤال صح</span></div>' +
+            '<p style="margin:0 0 11px;font-size:12.5px;color:var(--muted);font-weight:700;">كل نموذج يعيد ترتيب الأسئلة والاختيارات بأسئلة مختلفة لتتدرب بلا ملل.</p>' +
+            '<div class="grid-3">' +
+              [1, 2, 3, 4, 5, 6].map(function (m) {
+                var labels = ['نموذج شامل (أ)', 'نموذج شامل (ب)', 'نموذج شامل (ج)', 'نموذج شامل (د)', 'تحدي الأوائل', 'متجدد عشوائي 🔀'];
+                return '<button type="button" class="btn-primary" data-comp-model="' + m + '">' + labels[m - 1] + '</button>';
+              }).join('') +
+            '</div>' +
+          '</section>';
+
+        SUBJECTS.forEach(function (subj) {
+          var pool = QUESTION_BANK.filter(function (q) { return q.subjectId === subj.id; });
+          html +=
+            '<section class="card">' +
+              '<div class="section-title">' +
+                '<span>' + subj.icon + ' امتحانات ' + subj.fullName + '</span>' +
+                '<span style="font-size:12px;color:var(--muted);">' + pool.length + ' سؤال جاهز</span>' +
+              '</div>' +
+              '<div class="grid-3">' +
+                ['نموذج 1', 'نموذج 2', 'نموذج 3', 'نموذج 4', 'مراجعة مكثفة', 'متجدد 🔀'].map(function (lbl, idx) {
+                  return '<button type="button" class="btn-outline" data-subj-model="' + subj.id + '" data-model-idx="' + (idx + 1) + '">' + lbl + '</button>';
+                }).join('') +
+              '</div>' +
+            '</section>';
+        });
+
+        html +=
+          '<section class="card">' +
+            '<div class="section-title"><span>📚 دليل امتحانات الدروس</span></div>' +
+            '<div class="filter-row">' +
+              '<button type="button" class="filter-pill ' + (ui.subjectFilter === 'all' ? 'active' : '') + '" data-efilter="all">كل المواد</button>' +
+              SUBJECTS.map(function (s) {
+                return '<button type="button" class="filter-pill ' + (ui.subjectFilter === s.id ? 'active' : '') + '" data-efilter="' + s.id + '">' + s.name + '</button>';
+              }).join('') +
+            '</div>';
+
+        SUBJECTS.forEach(function (s) {
+          if (ui.subjectFilter !== 'all' && ui.subjectFilter !== s.id) return;
+          s.units.forEach(function (u) {
+            u.lessons.forEach(function (l) {
+              html +=
+                '<div class="lesson-row">' +
+                  '<div style="font-size:12.5px;font-weight:800;">' + s.icon + ' ' + l.title + '</div>' +
+                  '<button type="button" class="btn-primary" data-dir-lesson="' + l.id + '" data-dir-subj="' + s.id + '">ابدأ الامتحان</button>' +
+                '</div>';
+            });
+          });
+        });
+        html += '</section>';
+
+        document.getElementById('appMain').innerHTML = html;
+
+        document.querySelectorAll('[data-comp-model]').forEach(function (b) {
+          b.onclick = function () {
+            var m = Number(b.getAttribute('data-comp-model'));
+            ui.examSeedCounter += m * 3;
+            startExam('الامتحان الشامل للـ 5 مواد — نموذج ' + m, QUESTION_BANK, m === 5 ? 18 : 12, 'comprehensive');
+          };
+        });
+        document.querySelectorAll('[data-subj-model]').forEach(function (b) {
+          b.onclick = function () {
+            var sid = b.getAttribute('data-subj-model');
+            var m = Number(b.getAttribute('data-model-idx'));
+            var s = SUBJECTS.find(function (x) { return x.id === sid; });
+            var pool = QUESTION_BANK.filter(function (q) { return q.subjectId === sid; });
+            ui.examSeedCounter += m * 5;
+            startExam(s.fullName + ' — ' + b.textContent, pool, Math.min(8, pool.length), 'subject', sid);
+          };
+        });
+        document.querySelectorAll('[data-efilter]').forEach(function (b) {
+          b.onclick = function () { ui.subjectFilter = b.getAttribute('data-efilter'); render(); };
+        });
+        document.querySelectorAll('[data-dir-lesson]').forEach(function (b) {
+          b.onclick = function () {
+            var lid = b.getAttribute('data-dir-lesson');
+            var sid = b.getAttribute('data-dir-subj');
+            var direct = QUESTION_BANK.filter(function (q) { return q.lessonId === lid; });
+            var pool = direct.length >= 3 ? direct : QUESTION_BANK.filter(function (q) { return q.subjectId === sid; });
+            startExam('امتحان درس سريع', pool, 5, 'lesson', sid, lid);
+          };
+        });
+      }
+
+      function renderExamRunner() {
+        var ex = ui.examState;
+        if (!ex) { ui.view = 'exams'; renderExamsHub(); return; }
+
+        if (ex.finished) {
+          var total = ex.questions.length;
+          var correctCount = 0;
+          ex.questions.forEach(function (q, idx) {
+            if (ex.answers[idx] === q.correctIndex) correctCount++;
+          });
+          var pct = total ? Math.round((correctCount / total) * 100) : 0;
+
+          var html =
+            '<section class="card" style="text-align:center;">' +
+              '<div style="font-size:44px;">' + (pct >= 80 ? '🏆' : pct >= 50 ? '🌟' : '💪') + '</div>' +
+              '<h2 style="margin:6px 0;font-size:20px;font-weight:900;">نتيجة الامتحان</h2>' +
+              '<div style="font-size:13px;color:var(--muted);font-weight:700;">' + escapeHtml(ex.title) + '</div>' +
+              '<div style="margin:14px auto;padding:14px;border-radius:18px;background:var(--surface-2);border:1px solid var(--border);max-width:340px;">' +
+                '<div class="font-math tabular" style="font-size:28px;font-weight:900;color:var(--accent);">' + correctCount + ' / ' + total + ' (' + pct + '%)</div>' +
+                '<div style="font-size:13.5px;font-weight:900;color:#d97706;margin-top:4px;">حصلت على +' + ex.earnedThisExam + ' ⭐ في رصيدك!</div>' +
+              '</div>' +
+              '<div class="grid-2">' +
+                '<button type="button" class="btn-primary" id="retryDifferentExam">امتحان مختلف بأسئلة جديدة 🔀</button>' +
+                '<button type="button" class="btn-outline" id="backToExamsBtn">العودة للاختبارات</button>' +
+              '</div>' +
+            '</section>';
+
+          document.getElementById('appMain').innerHTML = html;
+          document.getElementById('retryDifferentExam').onclick = function () {
+            startExam(ex.title + ' (متجدد)', ex.pool, ex.limit, ex.mode, ex.subjectId, ex.lessonId);
+          };
+          document.getElementById('backToExamsBtn').onclick = function () { ui.examState = null; ui.view = 'exams'; render(); };
+          return;
+        }
+
+        var q = ex.questions[ex.index];
+        var chosenIdx = ex.answers[ex.index];
+        var answered = typeof chosenIdx === 'number';
+        var letters = ['أ', 'ب', 'ج', 'د'];
+
+        var html =
+          '<section class="card">' +
+            '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">' +
+              '<button type="button" class="btn-outline" id="exitExamBtn">✕ إنهاء</button>' +
+              '<span style="font-size:12.5px;font-weight:800;">سؤال <span class="font-math tabular">' + (ex.index + 1) + ' / ' + ex.questions.length + '</span></span>' +
+              '<span class="filter-pill active font-math tabular">+' + ex.earnedThisExam + ' ⭐</span>' +
+            '</div>' +
+            '<div class="progress-track" style="margin-top:10px;"><div class="progress-fill" style="width:' + Math.round(((ex.index + 1) / ex.questions.length) * 100) + '%;"></div></div>' +
+            '<div style="margin-top:12px;">' +
+              '<span class="filter-pill" style="font-size:11px;">' + escapeHtml(q.skill) + '</span>' +
+              '<h3 style="margin:10px 0 6px;font-size:16px;font-weight:900;line-height:1.65;">' + escapeHtml(q.prompt) + '</h3>' +
+              (q.math ? '<div class="math-box font-math">' + escapeHtml(q.math) + '</div>' : '') +
+            '</div>' +
+            '<div>' +
+              q.options.map(function (opt, idx) {
+                var cls = 'option-btn';
+                if (answered) {
+                  if (idx === q.correctIndex) cls += ' correct';
+                  else if (idx === chosenIdx) cls += ' wrong';
+                }
+                return '<button type="button" class="' + cls + '" ' + (answered ? 'disabled' : '') + ' data-opt="' + idx + '">' +
+                  '<span class="option-letter">' + letters[idx] + '</span>' +
+                  '<span>' + escapeHtml(opt) + '</span>' +
+                '</button>';
+              }).join('') +
+            '</div>' +
+            (answered
+              ? '<div class="explanation-box">' +
+                  (chosenIdx === q.correctIndex ? '✅ إجابة صحيحة! +5 ⭐ — ' : '❌ إجابة خاطئة — ') +
+                  escapeHtml(q.explanation) +
+                '</div>' +
+                '<div style="margin-top:12px;display:flex;justify-content:flex-end;">' +
+                  '<button type="button" class="btn-primary" id="nextQuestionBtn">' +
+                    (ex.index + 1 < ex.questions.length ? 'السؤال التالي ←' : 'عرض النتيجة النهائية 🏆') +
+                  '</button>' +
+                '</div>'
+              : '') +
+          '</section>';
+
+        document.getElementById('appMain').innerHTML = html;
+
+        document.getElementById('exitExamBtn').onclick = function () { ui.examState = null; ui.view = 'exams'; render(); };
+        document.querySelectorAll('[data-opt]').forEach(function (b) {
+          b.onclick = function () {
+            if (typeof ex.answers[ex.index] === 'number') return;
+            var picked = Number(b.getAttribute('data-opt'));
+            ex.answers[ex.index] = picked;
+            if (picked === q.correctIndex) {
+              state.points += 5;
+              ex.earnedThisExam += 5;
+              showToast('إجابة صحيحة! +5 ⭐');
+              saveState();
+            }
+            render();
+          };
+        });
+        var nextBtn = document.getElementById('nextQuestionBtn');
+        if (nextBtn) {
+          nextBtn.onclick = function () {
+            if (ex.index + 1 < ex.questions.length) {
+              ex.index++;
+            } else {
+              ex.finished = true;
+              state.examsTaken += 1;
+              var right = 0;
+              ex.questions.forEach(function (qq, i) { if (ex.answers[i] === qq.correctIndex) right++; });
+              var pct = Math.round((right / ex.questions.length) * 100);
+              if (pct > state.bestScorePct) state.bestScorePct = pct;
+              if (ex.lessonId && pct >= 60) state.completedLessons[ex.lessonId] = true;
+              saveState();
+            }
+            render();
+          };
+        }
+      }
+
+      function renderLeaderboard() {
+        var list = getLeaderboard();
+        var myRank = getMyRank();
+        var html =
+          '<section class="card">' +
+            '<div class="section-title">' +
+              '<span>🏆 سباق المركز الأول — TOP KEMO</span>' +
+              '<button type="button" class="btn-primary" id="editNameBtn">' + (state.studentName ? 'تعديل اسمي' : 'سجّل اسمك +20 ⭐') + '</button>' +
+            '</div>' +
+            '<p style="margin:0 0 10px;font-size:12.5px;color:var(--muted);font-weight:700;">' +
+              'ترتيبك الحالي: <strong style="color:var(--accent);">#' + myRank + '</strong> برصيد <strong class="font-math">' + state.points + ' ⭐</strong> (كل سؤال صح يزودك 5 نقط).' +
+            '</p>' +
+            list.map(function (row, idx) {
+              var medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : (idx + 1);
+              return '<div class="leader-row ' + (row.isMe ? 'me' : '') + '">' +
+                '<div style="display:flex;align-items:center;gap:10px;">' +
+                  '<span class="rank-num">' + medal + '</span>' +
+                  '<span style="font-size:20px;">' + escapeHtml(row.avatar) + '</span>' +
+                  '<div>' +
+                    '<div style="font-size:13.5px;font-weight:900;">' + escapeHtml(row.name) + (row.isMe ? ' (أنت)' : '') + '</div>' +
+                    '<div style="font-size:11px;color:var(--muted);font-weight:700;">' + row.exams + ' امتحان</div>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="font-math tabular" style="font-size:14px;font-weight:900;color:#d97706;">' + row.points + ' ⭐</div>' +
+              '</div>';
+            }).join('') +
+          '</section>';
+        document.getElementById('appMain').innerHTML = html;
+        document.getElementById('editNameBtn').onclick = function () { openNameModal(false); };
+      }
+
+      function renderProfile() {
+        var html =
+          '<section class="card" style="text-align:center;">' +
+            '<div style="font-size:48px;">' + escapeHtml(state.studentAvatar || '🎓') + '</div>' +
+            '<h2 style="margin:6px 0 2px;font-size:19px;font-weight:900;">' + escapeHtml(state.studentName || 'طالب TOP KEMO') + '</h2>' +
+            '<div style="font-size:13px;color:var(--accent);font-weight:800;">' + getRankTitle(state.points) + '</div>' +
+            '<div class="grid-3" style="margin-top:14px;">' +
+              '<div class="unit-box" style="margin-top:0;"><div class="font-math tabular" style="font-size:20px;font-weight:900;color:#d97706;">' + state.points + ' ⭐</div><div style="font-size:11px;color:var(--muted);font-weight:700;">إجمالي النقاط</div></div>' +
+              '<div class="unit-box" style="margin-top:0;"><div class="font-math tabular" style="font-size:20px;font-weight:900;color:var(--accent);">' + state.examsTaken + '</div><div style="font-size:11px;color:var(--muted);font-weight:700;">الامتحانات</div></div>' +
+              '<div class="unit-box" style="margin-top:0;"><div class="font-math tabular" style="font-size:20px;font-weight:900;">' + getOverallProgressPct() + '%</div><div style="font-size:11px;color:var(--muted);font-weight:700;">إنجاز المنهج</div></div>' +
+            '</div>' +
+            '<div class="grid-2" style="margin-top:14px;">' +
+              '<button type="button" class="btn-primary" id="profEditBtn">تعديل الاسم والشخصية</button>' +
+              '<button type="button" class="btn-outline" id="profApkBtn">📲 تنزيل التطبيق APK</button>' +
+            '</div>' +
+            '<button type="button" class="btn-outline" id="resetProgressBtn" style="margin-top:10px;width:100%;color:#ef4444;">إعادة تعيين التقدم والنقاط</button>' +
+          '</section>';
+        document.getElementById('appMain').innerHTML = html;
+        document.getElementById('profEditBtn').onclick = function () { openNameModal(false); };
+        document.getElementById('profApkBtn').onclick = openApkModal;
+        document.getElementById('resetProgressBtn').onclick = function () {
+          state.points = 0;
+          state.completedLessons = {};
+          state.examsTaken = 0;
+          state.bestScorePct = 0;
+          saveState();
+          showToast('تم تصفير التقدم');
+          render();
+        };
+      }
+
+      function renderNotifications() {
+        var html =
+          '<section class="card">' +
+            '<div class="section-title"><span>🔔 التنبيهات التفاعلية</span><button type="button" class="btn-outline" id="backFromNotif">رجوع</button></div>' +
+            state.notifications.map(function (n) {
+              return '<div class="unit-box">' +
+                '<div style="display:flex;justify-content:space-between;align-items:center;"><strong style="font-size:13.5px;">' + escapeHtml(n.title) + '</strong><span style="font-size:11px;color:var(--muted);">' + escapeHtml(n.time) + '</span></div>' +
+                '<p style="margin:5px 0 0;font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.6;">' + escapeHtml(n.body) + '</p>' +
+              '</div>';
+            }).join('') +
+          '</section>';
+        document.getElementById('appMain').innerHTML = html;
+        document.getElementById('backFromNotif').onclick = function () { ui.view = 'home'; render(); };
+      }
+
+      function render() {
+        document.body.setAttribute('data-theme', state.themeId || 'coral');
+        renderHeader();
+        renderBottomNav();
+        if (ui.view === 'home') renderHome();
+        else if (ui.view === 'lessons') renderLessons();
+        else if (ui.view === 'lesson-detail') renderLessonDetail();
+        else if (ui.view === 'exams') renderExamsHub();
+        else if (ui.view === 'exam-runner') renderExamRunner();
+        else if (ui.view === 'leaderboard') renderLeaderboard();
+        else if (ui.view === 'profile') renderProfile();
+        else if (ui.view === 'notifications') renderNotifications();
+      }
+
+      document.getElementById('modalBackdrop').onclick = function (e) {
+        if (e.target === this) this.classList.remove('open');
+      };
+
+      render();
+      if (!state.studentName) {
+        setTimeout(function () { openNameModal(false); }, 450);
+      }
+    })();
+  </script>
+</body>
+</html>
